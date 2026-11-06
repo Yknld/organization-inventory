@@ -111,7 +111,8 @@ def main():
                 for record in inventory:
                     name = record["Organization name"].strip()
                     row = flag_registration_conflict(lookup(page, name), record.get("Source URL(s)") or "")
-                    writer.writerow(row)
+                    if "revoked" not in row.get("status", "").casefold():
+                        writer.writerow(row)
                     print(name, row["lookup"], file=sys.stderr, flush=True)
                     time.sleep(0.5)
                 out.close()
