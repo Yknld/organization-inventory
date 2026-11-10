@@ -2,9 +2,15 @@
 
 The full inventory is in `inventory - Sheet1.csv`. The `national-scope.csv` subset includes entries whose service scope mentions national reach.
 
-## CRA charity lookup
+## Refresh the reviewed results
 
-`cra_lookup.py` opens the CRA charity search for each organization name and reads the public reporting-period data returned when it opens a matching profile. `cra-results.csv` contains the 28 entries in the user-reviewed CSV, with the supplied profile links and column order preserved. Revenue and expenses use thousands separators.
+Run `python3 refresh_reviewed_cra.py` to retrieve CRA status, reporting period, revenue, expenses, programs, compensation and employee counts using the exact links in `reviewed-cra-links.csv`. It joins each reviewed organization to `inventory - Sheet1.csv`, including the original evidence summaries, communities, service scope and source links.
+
+The results preserve the reviewed selection and profile URLs. Entries marked `NR` retain that review marker and their original inventory information. No CRA registration conclusion is inferred from that marker. Revoked profiles are excluded. The output is replaced only after every supplied CRA link has been retrieved successfully.
+
+## CRA name search
+
+`cra_lookup.py` opens the CRA charity search for each organization name and reads the public reporting-period data returned when it opens a matching profile. Name searches write to `cra-name-search-results.csv`. The combined reviewed results are in `cra-results.csv`. Revenue and expenses use thousands separators.
 
 With Python 3.9+ and Google Chrome installed, run:
 

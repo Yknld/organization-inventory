@@ -1,5 +1,5 @@
 """Search CRA by name. Install: pip install playwright && playwright install chromium
-Run: python cra_lookup.py [--input national-scope.csv] [--output cra-results.csv]
+Run: python cra_lookup.py [--input national-scope.csv] [--output cra-name-search-results.csv]
 Single lookup: python cra_lookup.py --name "Federation of Black Canadians"
 """
 import argparse
@@ -85,7 +85,7 @@ def flag_registration_conflict(row, urls):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=Path("national-scope.csv"))
-    parser.add_argument("--output", type=Path, default=Path("cra-results.csv"))
+    parser.add_argument("--output", type=Path, default=Path("cra-name-search-results.csv"))
     parser.add_argument("--name")
     parser.add_argument("--chrome", action="store_true", help="Use installed Google Chrome")
     parser.add_argument("--headed", action="store_true", help="Show the browser and allow time for manual site verification")
