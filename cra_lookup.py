@@ -66,7 +66,7 @@ def lookup(page, name):
             for chart, field in [("revenueChart", "revenue CAD"), ("expenseChart", "expenses CAD")]:
                 total = (details.get(chart) or {}).get("total")
                 if isinstance(total, (int, float)):
-                    result[field] = total
+                    result[field] = format(total, ",")
         result["lookup"] = ("matched" if "expenses CAD" in result and "revenue CAD" in result
                             else "matched; financials unavailable")
     except (Error, KeyError, TypeError, ValueError) as exc:
