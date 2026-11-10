@@ -4,7 +4,7 @@ The full inventory is in `inventory - Sheet1.csv`. The `national-scope.csv` subs
 
 ## CRA charity lookup
 
-`cra_lookup.py` opens the CRA charity search for each organization name and reads the public reporting-period data returned when it opens a matching profile. `cra-results.csv` contains national-scope entries in input order, excluding rows whose CRA status contains “revoked”. Rows with unresolved status are retained.
+`cra_lookup.py` opens the CRA charity search for each organization name and reads the public reporting-period data returned when it opens a matching profile. `cra-results.csv` contains the 28 entries in the user-reviewed CSV, with the supplied profile links and column order preserved. Revenue and expenses use thousands separators.
 
 With Python 3.9+ and Google Chrome installed, run:
 
